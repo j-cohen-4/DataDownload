@@ -23,7 +23,7 @@ tickers[214:216] <- c("CLV7 Comdty" ,"CLX7 Comdty", "CLZ7 Comdty")
 
 ##find last trade date; only pull last 250 days of data
 lastdate <- rep(NA, length(tickers))
-for(i in 205:216){
+for(i in 1:length(tickers)){
   lastdate[i] <- bdp(tickers[i],"LAST_TRADEABLE_DT") 
 }
 
