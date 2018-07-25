@@ -10,7 +10,12 @@ getOptionTicker <- function(fut.ticker,
     # Get price
     tgt = tail(futures, 1)[,1] - lb;
     prc = head(futures[futures$date >= tgt, 2], 1);
-    mid = round(prc, decimals);
+    mod = prc %% stp;
+    if( (stp - mod) < (0.5 * stp) ){
+        mid = prc + stp - mod;
+    } else {
+        mid = prc - mod;
+    }
     
     # Anchor
     sym = strsplit(fut.ticker, " ")[[1]][1];
