@@ -22,7 +22,7 @@ getOptionTicker <- function(fut.ticker,
     fin = ifelse(nchar(sym) == 5, 5, 4);
     sym = sprintf("%s%s", substr(sym, 1, 3), substr(sym, fin, fin));
     rng = seq(mid - updn, mid + updn, stp);
-    rng = rng[rng >= lowerbnd & rnd <= upperbnd];
+    rng = rng[rng >= lowerbnd & rng <= upperbnd];
     
     # Build ticker
     len  = length(rng);
