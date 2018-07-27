@@ -7,6 +7,8 @@ getOptionTicker <- function(fut.ticker,
                             upperbnd=1000,         # highest strike allowed
                             lowerbnd=10){          # lowest strike allowed
   
+    # No code change, only change for github test!  
+  
     # Get price
     tgt = tail(futures, 1)[,1] - lb;
     prc = head(futures[futures$date >= tgt, 2], 1);
@@ -22,7 +24,7 @@ getOptionTicker <- function(fut.ticker,
     fin = ifelse(nchar(sym) == 5, 5, 4);
     sym = sprintf("%s%s", substr(sym, 1, 3), substr(sym, fin, fin));
     rng = seq(mid - updn, mid + updn, stp);
-    rng = rng[rng >= lowerbnd & rng <= upperbnd];
+    rng = rng[rng >= lowerbnd & rnd <= upperbnd];
     
     # Build ticker
     len  = length(rng);
